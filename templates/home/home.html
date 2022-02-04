@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% include static %}
+
+{% block main %}
+<main>
+    <!-- section -->
+    <section class="highlights">
+        <div class="container">
+            <div class="box">
+                <div class="overlay"></div>
+                <img src="{% static 'imgs/highlights/1.jpg' %}" alt="">
+                <div class="description">
+                    <h2>Face</h2>
+                    <a href="#" class="btn outlined">Shop Now</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="overlay"></div>
+                <img src="{% static 'imgs/highlights/2.jpg'%}" alt="">
+                <div class="description">
+                    <h2>Body</h2>
+                    <a href="#" class="btn outlined">Shop Now</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="overlay"></div>
+                <img src="{% static 'imgs/highlights/3.jpg'%}" alt="">
+                <div class="description">
+                    <h2>Cream</h2>
+                    <a href="#" class="btn outlined">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="selling">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top Selling</h2>
+                <ul>
+                    <li><a href="#" class="btn primary active outlined">Skin</a></li>
+                    <li><a href="#" class="btn primary outlined">Face</a></li>
+                    <li><a href="#" class="btn primary outlined">Body</a></li>
+                </ul>
+            </div>
+            <div class="section-body">
+                {% for product in top_products %}
+                    {% include '_partials/product_list.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="accessories">
+        <div class="container">
+            <div class="wrapper">
+                <div class="box">
+
+                </div>
+                <div class="box">
+
+                </div>
+            </div>
+            <div class="description">
+                <h2>Makeup Kits</h2>
+                <span>&</span>
+                <h2>Body Lotions</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="picks">
+        <div class="container">
+            <div class="section-header">
+                <h2>Picks for you</h2>
+            </div>
+            <div class="section-body">
+                {% for product in product_picks %}
+                    {% include '_partials/product_list.html' %}
+                {% endfor %}
+            </div>
+            <div class="section-footer">
+                <a href="$" class="btn">See Store</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="policy">
+        <div class="container">
+            <div class="box">
+                <span><i class="fa fa-download"></i></span>
+                <h2>Members Discount</h2>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit, numquam et ipsa ex aut cupiditate qui voluptatibus eius exercitationem perspiciatis commodi accusamus assumenda laboriosam, maiores sit. Error qui aspernatur autem.
+                </p>
+            </div>
+            <div class="box">
+                <span><i class="fa fa-download"></i></span>
+                <h2>Day Deliveries</h2>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit, numquam et ipsa ex aut cupiditate qui voluptatibus eius exercitationem perspiciatis commodi accusamus assumenda laboriosam, maiores sit. Error qui aspernatur autem.
+                </p>
+            </div>
+            <div class="box">
+                <span><i class="fa fa-download"></i></span>
+                <h2>Shipment Drops</h2>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit, numquam et ipsa ex aut cupiditate qui voluptatibus eius exercitationem perspiciatis commodi accusamus assumenda laboriosam, maiores sit. Error qui aspernatur autem.
+                </p>
+            </div>
+            <div class="box">
+                <span><i class="fa fa-download"></i></span>
+                <h2>Return Policy</h2>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit, numquam et ipsa ex aut cupiditate qui voluptatibus eius exercitationem perspiciatis commodi accusamus assumenda laboriosam, maiores sit. Error qui aspernatur autem.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <form action="." method="post">
+                <legend><h2>Get products updates right in your inbox.</h2></legend>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email address">
+                <a href="#" type="submit" class="btn">Subscribe</a>
+            </form>
+        </div>
+    </section>
+
+
+</main>
+{% endblock main %}

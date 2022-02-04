@@ -1,0 +1,446 @@
+:root {
+    --primary: pink;
+    --dark: black;
+    --light: white;
+    --secondary: grey;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transform: ease-in;
+}
+
+a {
+    text-decoration: none;
+}
+
+a.btn {
+    background: var(--dark);
+    padding: 0.8em 2em;
+    color: var(--light);
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    padding: 0em 2em;
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    padding: 2em;
+    width: 25%;
+}
+
+.card .card-img {
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .card-footer {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card .card-footer h4 {
+    font-size: 1.2em;
+}
+
+.card .card-footer p {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.form-control{
+    width: 80%;
+    margin: 1em auto;
+    padding: 1em 0.8em;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/* header */
+header {
+    position: relative;
+    height: 100vh;
+}
+
+/* nav */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: var(--light); */
+    position: sticky;
+    top: 0;
+}
+
+nav .container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .container ul {
+    padding: 1em;
+}
+
+nav .container a {
+    color: var(--dark);
+    padding: 0.8em 1em;
+}
+
+nav .container a.nav-brand {
+    font-weight: 600;
+    font-size: 1em;
+}
+
+/* hero */
+.hero {
+    position: relative;
+    height: calc(100vh - 3.25em);
+}
+
+.hero img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+}
+
+.hero .container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: yellowgreen; */
+}
+
+.hero .hero-text {
+    position: relative;
+    background: rgba(255, 255, 255, 0.548);
+    text-align: center;
+    max-width: 60%;
+    padding: 2.5em;
+    border-radius: 2em;
+}
+
+.hero .hero-text h3 {
+    padding: o.5em;
+    font-size: 3em;
+    font-weight: 400;
+}
+
+.hero .hero-text h2 {
+    padding: 0.5em;
+    font-size: 4em;
+    font-weight: 800;
+}
+
+.hero .hero-text p {
+    padding: 0.5em;
+    font-size: 1.5em;
+    font-weight: 200;
+    text-align: baseline;
+    width: 80%;
+    margin: 1em auto;
+
+}
+
+.hero .hero-text a.btn {
+    margin-top: 2em;
+}
+
+/* Sections */
+/* 1 */
+.highlights {
+    position: relative;
+    height: 60vh;
+    background: var(--light);
+    width: 100%;
+}
+
+.highlights .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4em;
+    width: 100%;
+    height: 100%;
+    padding: 4em 2em;
+}
+
+.highlights .container .box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.highlights .container .box img {
+    position: absolute;
+    min-width: 100%;
+    /* min-height: 100%; */
+    height: 100%;
+    overflow: hidden;
+}
+
+.highlights .container .box .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.548);
+}
+
+.highlights .container .box .description {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.highlights .container .box .description h2 {
+    padding: 1em;
+    font-size: 2.5em;
+    color: var(--light);
+    text-transform: capitalize;
+}
+
+.highlights .container .box .description a.outlined:hover {
+    background: var(--light);
+    color: var(--dark);
+    border: 1px solid var(--dark);
+
+}
+
+/* 2 */
+.selling {
+    background: var(--light);
+    /* z-index: 2; */
+    padding: 2.5em 0em;
+}
+
+.selling .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+.selling .section-header h2 {
+    padding: 1em;
+    font-weight: 600;
+    font-style: 2em;
+}
+
+.selling .section-header ul {
+    display: flex;
+    align-items: center;
+}
+
+.selling .section-header a.outlined {
+    background: var(--light);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.selling .section-header a.active {
+    background: var(--primary);
+    color: var(--light);
+}
+
+.selling .section-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* 3 */
+.accessories {
+    height: 60vh;
+    background: var(--light);
+}
+.accessories .container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.accessories .container .wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.accessories .container .wrapper .box {
+    width: 100%;
+    height: 100%;
+}
+.accessories .container .wrapper .box:nth-child(1){
+    background: pink;
+}
+.accessories .container .wrapper .box:nth-child(2){
+    background: var(--light);
+    border: 1px solid var(--primary);
+}
+.accessories .container .description{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.accessories .container .description h2{
+    font-size: 8em;
+}
+.accessories .container .description span{
+    font-size: 8em;
+    font-weight: bold;
+}
+.accessories .container .description h2:nth-child(1){
+    color: var(--light);
+    text-align: right;
+}
+.accessories .container .description h2:nth-child(2){
+    color: var(--primary);
+    text-align: left;
+}
+
+
+/* 4 */
+.picks{
+    padding: 2em;
+}
+
+.picks .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+.picks .section-header h2 {
+    padding: 1em;
+    font-weight: 600;
+    font-style: 2em;
+}
+.picks .section-body{
+    display: flex;
+}
+.picks .section-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 5 */
+.policy{
+    height: 50vh;
+}
+.policy .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.policy .container .box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.policy .container .box span{
+    padding: 0.5em;
+    font-size: 2em;
+    border-radius: 50%;
+    background: var(--primary);
+}
+.policy .container .box h2{
+    font-weight: 600;
+    padding: 1em;
+}
+.policy .container .box p{
+    font-weight: 400;
+    color: var(--secondary);
+}
+
+
+
+/* 6 */
+.newsletter{
+    height: 40vh;
+    background: var(--primary);
+}
+.newsletter .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.newsletter .container form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80%;
+    width: 50%;
+    color: var(--light);
+}
+.newsletter .container form legend{
+    padding: 1em;
+}
+
+/* 7 */
+footer{
+    background: pink;
+    height: 3.25em;
+    border-top: 1px solid var(--light);
+    color: var(--light);
+}
+footer .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+footer .container a{
+    padding: 0em 1em;
+    color: var(--light);
+}

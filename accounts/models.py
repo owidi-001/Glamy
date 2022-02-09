@@ -10,14 +10,14 @@ from rest_framework.authtoken.models import Token
 from .managers import UserManager
 
 
-def upload(instance, filename):
-    return f"media/{instance.user.id}/avatar/{filename}"
+# def upload(instance, filename):
+#     return f"media/{instance.user.id}/avatar/{filename}"
 
 
 class User(AbstractUser):
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=13, null=False, blank=False, unique=True)
-    avatar = models.ImageField(null=True, blank=True, upload_to=upload)
+    avatar = models.ImageField(null=True, blank=True, upload_to="media/avatars")
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["phone"]

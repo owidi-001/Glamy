@@ -17,10 +17,11 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .forms import UserLoginForm, UserCreationForm
-from .models import PasswordResetToken
+from accounts.forms import UserLoginForm, UserCreationForm
+from accounts.models import PasswordResetToken, User
 from .serializers import *
-from .token_generator import password_reset_token
+from accounts.token_generator import password_reset_token
+
 # Documentation schema
 from .user_schema import *
 
@@ -55,7 +56,7 @@ class RegisterUser(APIView):
             token = Token.objects.get(user=user).key
             data["token"] = token
             email_to = form.cleaned_data.get("email")
-            message = render_to_string("registration_email.html", {
+            message = render_to_string("auth/registration_email.html", {
                 "email": email_to})
             EmailThead([email_to], message).start()
 
@@ -147,7 +148,7 @@ class ResetPasswordView(APIView):
             obj.save()
             # send short_token to user email
             message = f'''Password reset code \n Code:{obj.short_token}'''
-            message = render_to_string('password_reset_mail.html', {
+            message = render_to_string('auth/password_reset_mail.html', {
                 'user': user,
                 'protocol': 'http',
                 'domain': site.domain,

@@ -12,11 +12,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # apps
-    path('', include('accounts.urls')),
-    path('', include('store.urls')),
+    path('auth/', include('accounts.urls')),
+    path('store/', include('store.urls')),
 
     # Documentation
-    path('api/', include_docs_urls(title="Glammy")),
+    path('', include_docs_urls(title="Glammy")),
 
     # path('api-auth/', include('rest_framework.urls')),
 ]

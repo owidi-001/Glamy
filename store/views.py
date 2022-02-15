@@ -143,8 +143,8 @@ class AdminProductsView(APIView):
 
 class ClientCategoryView(APIView):
     """
-            Client browses products by category
-            No authentication required
+        Client browses products by category
+        No authentication required
     """
     def get(self,request):
         category_id=request.data.get("category_id")

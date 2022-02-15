@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+from accounts.models import User
+
+
+class Cart(models.Model):
+    customer=models.ForeignKey(User,on_delete=models.CASCADE)

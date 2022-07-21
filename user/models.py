@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+
 # Generates auth token
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -21,7 +22,7 @@ class User(AbstractUser):
     phone_number = models.CharField(
         max_length=13, null=False, blank=False, unique=True)
     avatar = models.ImageField(null=True, blank=True, upload_to='media/')
-    is_driver = models.BooleanField(default=False, blank=True)
+    is_vendor = models.BooleanField(default=False, blank=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username", "phone_number"]

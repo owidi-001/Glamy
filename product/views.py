@@ -1,15 +1,8 @@
-import imp
 from django.shortcuts import get_object_or_404
-from django.utils.decorators import method_decorator
+# from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework.decorators import api_view
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.views import APIView
-
 
 from rest_framework.response import Response
-
 from rest_framework.views import APIView
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -19,26 +12,12 @@ from .models import Product
 from .serializer import ProductSerializer
 
 
-# function views
-# from rest_framework.decorators import api_view, renderer_classes
-# from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
-
-# # @api_view(('GET',))
-# # @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
-# # def all_products(request):
-# #     products=Product.objects.all()
-
-# #     serializer=ProductSerializer(data=products,many=True)
-# #     if serializer.is_valid():
-# #         return Response(serializer.data,status=200)
-# #     return Response(serializer.errors,status=400)
-    
-
 # class views
+@csrf_exempt
 class ProductView(APIView):
 
     """
-    List and detail view for the product
+    List all products and CRUD operations for detail view for the product
     """
 
     schema=ProductSchema()
@@ -48,21 +27,20 @@ class ProductView(APIView):
 
     def get_product(self,request):
         product_id=request.data.get("product_id")
-        product=Product.objects.get(id=product_id)
+        product=get_object_or_404(Product,id=product_id)
+
         if product:
             return product
         else:
             return None
 
+    """ Returns all available products """
+    def get(self):
+        products=Product.objects.all()
+        serializer=ProductSerializer(products,many=True).data
+        return Response(serializer)
 
-    def get(self,request):
-        product=self.get_product(request)
-
-        if product:
-            serializer=ProductSerializer(product).data
-            return Response(serializer,status=200)
-        return Response(serializer.errors,status=404)
-
+    """ Creates new product to the database """
     def post(self,request):
             serializer=ProductSerializer(data=request.data)
 
@@ -72,6 +50,7 @@ class ProductView(APIView):
 
             return Response(serializer.errors,status=400)
 
+    """ Updates an existing product price, description and name"""
     def put(self,request):
         product=self.get_product(request)
 
@@ -91,6 +70,7 @@ class ProductView(APIView):
         return Response(serializer.errors,status=400)
 
 
+    """ Removes product from the database """
     def delete(self,request):
         product=self.get_product(request)
 

@@ -24,6 +24,10 @@ from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('',include('vendor.urls')),
+    path('',include('client.urls')),
+    path('',include('product.urls')),
     
     # Documentation
     path('', include_docs_urls(title="Glamy API")),

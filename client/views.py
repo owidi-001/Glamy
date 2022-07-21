@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from yaml import serialize
 
 from user.models import User
-from .serializer import UserSerializer
+from user.serializers import UserSerializer
 
 # Create your views here.
 class ClientPageView(APIView):

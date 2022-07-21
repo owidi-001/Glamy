@@ -46,9 +46,10 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     # Local
+    'user',
     'product',
     'client',
-    'user'
+    'vendor'
 
 ]
 

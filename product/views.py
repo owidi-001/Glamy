@@ -43,8 +43,8 @@ class ProductView(APIView):
 
     schema=ProductSchema()
 
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def get_product(self,request):
         product_id=request.data.get("product_id")

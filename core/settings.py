@@ -39,13 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     # 3rd party
     'rest_framework',
     'drf_yasg',
 
     # Local
     'product',
-    'client'
+    'client',
+    'user'
+
 ]
 
 # rest framework documentation
@@ -160,7 +163,7 @@ MEDIA_ROOT = BASE_DIR, 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'user.User'
 
 LOGOUT_REDIRECT_URL = "/"
 

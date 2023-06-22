@@ -11,11 +11,11 @@ class UserCreationForm(forms.ModelForm):
         max_length=13, help_text="Phone number is required")
     username = forms.CharField(
         max_length=150, help_text="Username is required")
-    is_driver = forms.BooleanField(required=False, help_text="I'm a driver")
+    is_vendor = forms.BooleanField(required=False, help_text="I want to be a vendor")
 
     class Meta:
         model = User
-        fields = ["phone_number", "email", "username", "password", "is_driver"]
+        fields = ["phone_number", "email", "username", "password", "is_vendor"]
 
     def clean_email(self):
         email = self.cleaned_data.get("email")
@@ -41,9 +41,9 @@ class UserCreationForm(forms.ModelForm):
             raise ValidationError("Username is required")
         return username
 
-    def clean_is_driver(self):
-        is_driver = self.cleaned_data.get("is_driver")
-        if not is_driver:
+    def clean_is_vendor(self):
+        is_vendor = self.cleaned_data.get("is_vendor")
+        if not is_vendor:
             return False
         return True
 

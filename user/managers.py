@@ -2,7 +2,7 @@ from django.contrib.auth.models import BaseUserManager
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, phone_number, username, is_driver, password=None):
+    def create_user(self, email, phone_number, username, is_vendor, password=None):
         if not email:
             raise ValueError("User must have an email")
         if not password:
@@ -17,7 +17,7 @@ class UserManager(BaseUserManager):
         )
         user.phone_number = phone_number
         user.username = username
-        user.is_driver = is_driver
+        user.is_vendor = is_vendor
         user.set_password(password)  # changes password to hash
         user.is_admin = False
         user.is_staff = False

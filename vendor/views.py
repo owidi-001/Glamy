@@ -10,7 +10,7 @@ from product.serializer import ProductSerializer
 
 # Create your views here.
 class VendorViews(APIView):
-    """ Vendor dashboard functionalities"""
+    """ Vendor dashboard functions: list, create, update, delete"""
 
     """ Gets a list of all products belonging to the vendor """
     def get(self,request):
@@ -28,7 +28,7 @@ class VendorViews(APIView):
 
             return Response(serializer)
 
-    """ Update product"""
+    """ Vendor Updates existing product"""
     def put(self,request):
         product=get_object_or_404(Product,pk=request.get("product_id"))
 
@@ -47,3 +47,13 @@ class VendorViews(APIView):
             product.save()                
 
             return Response(serializer)
+
+    """ Vendor deletes a product from db """
+    def delete(self,request):
+        product=get_object_or_404(Product,pk=request.get("product_id"))
+        vendor=request.user
+
+        if product.vendor==vendor:
+            product.delete()
+
+            return Response({"message":"Product deleted"})

@@ -22,7 +22,7 @@ class RegistrationSchema(AutoSchema):
                     ),
                 ),
                 coreapi.Field("password", required=True, location="form"),
-                coreapi.Field("is_driver", required=False, location="form", schema=coreschema.Boolean(default=False)),
+                coreapi.Field("is_vendor", required=False, location="form", schema=coreschema.Boolean(default=False)),
             ]
         manual_fields = super().get_manual_fields(path, method)
         return manual_fields + extra_fields

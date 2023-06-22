@@ -11,7 +11,7 @@ urlpatterns = [
     path("auth/logout/", LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name="logout"),
 
     # reset password done
-    path("auth/reset/", ResetPasswordView.as_view(), name="reset"),
-    path("auth/reset/<uidb64>/<token>/", ResetPasswordCompleteView.as_view(), name="reset"),
+    path("auth/reset_password/", ResetPasswordView.as_view(), name="reset"),
+    path("auth/reset_password_complete/<uidb64>/<token>/", ResetPasswordCompleteView.as_view(), name="reset"),
 
 ]
